@@ -64,15 +64,6 @@ class JobRunner
      */
     public function getApiUrl($jobId, $method = 'GET')
     {
-        if (!is_string($method) ||
-            (
-                strcasecmp($method, 'get') != 0 &&
-                strcasecmp($method, 'post') != 0
-            )
-        ) {
-            throw new Exception('Unknown method. It must be GET or POST.');
-        }
-
         return
             "http" . (($this->config['ssl']) ? 's' : '') . "://" .
             $this->config['host'] . ':' . $this->config['port'] . '/api/' .

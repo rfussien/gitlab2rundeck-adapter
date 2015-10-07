@@ -42,30 +42,4 @@ class JobRunnerTest extends TestCase
             $jobRunner->getApiUrl($jobId, "pOsT")
         );
     }
-
-    /**
-     * @expectedException Exception
-     * @expectedExceptionMessage Unknown method. It must be GET or POST.
-     */
-    public function testAnExceptionIsThrownErrorOnUnknownMethod()
-    {
-        $JobRunner = new JobRunner($this->config);
-        $jobId = '558d3c76-7768-4056-a10c-0842ecae0ca8';
-
-        $JobRunner->getApiUrl($jobId, 'FOO');
-    }
-
-    /**
-     * @expectedException Exception
-     * @expectedExceptionMessage Unknown method. It must be GET or POST.
-     */
-    public function testErrorOnMethod()
-    {
-        $JobRunner = new JobRunner($this->config);
-        $jobId = '558d3c76-7768-4056-a10c-0842ecae0ca8';
-
-        $JobRunner->getApiUrl($jobId, ['GET']);
-    }
-
-
 }
