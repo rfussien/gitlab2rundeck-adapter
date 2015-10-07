@@ -78,24 +78,18 @@ class Adapter
         // before we run the job, we want to make sure the build passed or
         // the runOnFail is true
 
-        if ($this->getHook()->getBuildStatus() != 'success') {
-
+        if ($this->getHook()->getBuildStatus() != 'success' &&
+            !$project['runOnFail']
+        ) {
             $this->warning(
-                "The project {$hook->getProjectName()} build has failed"
+                "The project config for {$hook->getProjectName()} " .
+                "doesn't enable to run the job when the build failed"
             );
 
-            if (!$project['runOnFail']) {
-
-                $this->warning(
-                    "The project config for {$hook->getProjectName()} " .
-                    "doesn't enable to run the job when the build failed"
-                );
-
-                return 0;
-            }
+            return 0;
         }
 
-        $this->info("The job ");
+        $this->info("Running the job {$project['jobId']}");
 
         return $this->jobRunner->run($project['jobId']);
     }
