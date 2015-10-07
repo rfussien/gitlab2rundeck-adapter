@@ -27,7 +27,6 @@ port: 4440                              # OPTIONAL (Default 4440)
 ssl: true                               # OPTIONAL (Default false)
 api_version: 13                         # OPTIONAL (Default 14. Has to be >= 13)
 log_level: DEBUG                        # OPTIONAL ('DEBUG','VERBOSE','INFO','WARN','ERROR')
-
 ```
 
 ### Gitlab projects configuration
@@ -50,7 +49,6 @@ projects:
     ref: master
     runOnFail: false
 [...]
-
 ```
 
 ## Run the adapter
@@ -64,5 +62,4 @@ $adapter = G2R\Adapter::factory(
 );
 
 $adapter->run();
-
 ```
