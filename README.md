@@ -3,7 +3,7 @@
 This small package able you to run a rundeck job after a gitlab(ci) event is hooked.
 
 ## Requirements:
-- works with PHP 5.5 or above
+- works with PHP 5.4 or above
 - rundeck api 14 and above
 - gitlab(ci) 7 and above
 
