@@ -1,7 +1,5 @@
 <?php namespace G2R\Config;
 
-use G2R\Exception\Exception;
-
 class RundeckConfig extends AbstractConfig
 {
     /**
