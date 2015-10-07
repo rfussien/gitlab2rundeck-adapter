@@ -1,5 +1,5 @@
 {
-  "name": "rfussien/Gitlab2rundeck-Webhook-Adapter",
+  "name": "rfussien/gitlab2rundeck-adapter",
   "description": "a small gitlab to rundeck adapter",
   "license": "MIT",
   "authors": [
