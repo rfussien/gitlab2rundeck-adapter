@@ -13,6 +13,8 @@ class Adapter
 {
     use LoggerTrait;
 
+    protected $logger;
+
     protected $jobRunner;
 
     protected $projectsConfig;
@@ -99,9 +101,9 @@ class Adapter
     }
 
     /**
-     * Load the rundeck config
+     * Load the rundeck job runner
      *
-     * @param RundeckConfig $rundeckConfig
+     * @param JobRunner $jobRunner
      */
     public function attachJobRunner(JobRunner $jobRunner)
     {

@@ -2,7 +2,7 @@
 
 class GitlabHook
 {
-    protected $pushData = [];
+    protected $pushData;
 
     protected $buildStatus = 'failed';
 

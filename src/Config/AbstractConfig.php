@@ -5,6 +5,8 @@ use Noodlehaus\Config;
 
 abstract class AbstractConfig extends Config
 {
+    protected $path;
+
     public function __construct($path)
     {
         parent::__construct($path);

@@ -63,7 +63,7 @@ class ProjectConfig extends AbstractConfig
             $this->get('projects'),
             function ($config) use ($name, $ref) {
                 return
-                    $config['project']['name'] == $name and
+                    $config['project']['name'] == $name &&
                     $config['project']['ref'] == $ref;
             }
         );
