@@ -32,10 +32,12 @@ class JobRunner
     {
         $method = (empty($parameters)) ? 'GET' : 'POST';
 
-        $options = ['http' => [
-            'header' => "X-Rundeck-Auth-Token: {$this->config['token']}\r\n",
-            'method' => $method
-        ]];
+        $options = [
+            'http' => [
+                'header' => "X-Rundeck-Auth-Token: {$this->config['token']}\r\n",
+                'method' => $method
+            ]
+        ];
 
         if ($method == 'POST') {
             $options ['http']['header'] .= "Content-type: application/x-www-form-urlencoded\r\n";
@@ -62,22 +64,19 @@ class JobRunner
      */
     public function getApiUrl($jobId, $method = 'GET')
     {
-        $url = "http" . (($this->config['ssl']) ? 's' : '') . "://" .
-            $this->config['host'] . ':' . $this->config['port'] . '/api/' .
-            $this->config['api_version'] . '/job/' . $jobId . '/';
-
-        if (!is_string($method)) {
+        if (!is_string($method) ||
+            (
+                strcasecmp($method, 'get') != 0 &&
+                strcasecmp($method, 'post') != 0
+            )
+        ) {
             throw new Exception('Unknown method. It must be GET or POST.');
         }
 
-        if (strcasecmp($method, 'get') == 0) {
-            return $url . 'run';
-        }
-
-        if (strcasecmp($method, 'post') == 0) {
-            return $url . 'executions';
-        }
-
-        throw new Exception("Unknown method. It must be GET or POST.");
+        return
+            "http" . (($this->config['ssl']) ? 's' : '') . "://" .
+            $this->config['host'] . ':' . $this->config['port'] . '/api/' .
+            $this->config['api_version'] . '/job/' . $jobId . '/' .
+            ((strcasecmp($method, 'get') == 0) ? 'run' : 'executions');
     }
 }
