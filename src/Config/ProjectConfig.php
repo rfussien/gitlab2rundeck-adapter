@@ -54,7 +54,7 @@ class ProjectConfig extends AbstractConfig
      * @param        $name
      * @param string $ref
      *
-     * @return null
+     * @return array $project
      * @throws Exception
      */
     public function getProject($name, $ref = 'master')
