@@ -9,7 +9,7 @@
     }
   ],
   "require": {
-    "php": ">=5.5",
+    "php": ">=5.4",
     "hassankhan/config": "^0.8.2",
     "psr/log": "~1.0"
   },
