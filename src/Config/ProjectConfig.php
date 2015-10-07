@@ -79,10 +79,8 @@ class ProjectConfig extends AbstractConfig
                 }
 
                 return $project;
-                break;
             case 0:
                 throw new Exception("Project {$name}[{$ref}] not found");
-                break;
             default:
                 throw new Exception("Duplicate project {$name}[{$ref}]");
         }
