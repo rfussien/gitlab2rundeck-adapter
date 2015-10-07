@@ -68,22 +68,23 @@ class ProjectConfig extends AbstractConfig
             }
         );
 
-        if (count($project) == 1) {
-            $project = array_shift($project)['project'];
+        switch (count($project)) {
+            case 1:
+                $project = array_shift($project)['project'];
 
-            if (!isset($project['jobId'])) {
-                throw new Exception(
-                    "The jobId is missing for the {$name}[{$ref}] project"
-                );
-            }
+                if (!isset($project['jobId'])) {
+                    throw new Exception(
+                        "The jobId is missing for the {$name}[{$ref}] project"
+                    );
+                }
 
-            return $project;
+                return $project;
+                break;
+            case 0:
+                throw new Exception("Project {$name}[{$ref}] not found");
+                break;
+            default:
+                throw new Exception("Duplicate project {$name}[{$ref}]");
         }
-
-        if (count($project) == 0) {
-            throw new Exception("Project {$name}[{$ref}] not found");
-        }
-
-        throw new Exception("Duplicate project {$name}[{$ref}]");
     }
 }
