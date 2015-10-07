@@ -1,0 +1,31 @@
+{
+  "name": "rfussien/Gitlab2rundeck-Webhook-Adapter",
+  "description": "a small gitlab to rundeck adapter",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Remi FUSSIEN",
+      "email": "remi.fussien@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "hassankhan/config": "^0.8.2",
+    "psr/log": "~1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4",
+    "monolog/monolog": "^1.17"
+  },
+  "autoload": {
+    "psr-4": {
+      "G2R\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/"
+    ]
+  },
+  "minimum-stability": "stable"
+}

@@ -1,0 +1,34 @@
+# gitlab(ci) configuration
+gitlab_url: http://gitlab
+projects:
+- project:
+    name: repos/app1                            # REQUIRED project name
+    jobId: 558d3c76-7768-4056-a10c-0842ecae0ca9 # REQUIRED Rundeck Job UUID
+    ref: master                                 # OPTIONAL default: master. Project branch
+    runOnFail: true                             # OPTIONAL default: false. Run the job even if the tests failed
+    runOnTagOnly: true                          # OPTIONAL default: false. Run the job only when a tag is done (useful for release deployment)
+    jobArgs: { arg1: foo, arg2: bar }           # OPTIONAL Rundeck Job arguments
+    runJobAs: foo                               # OPTIONAL Run the job as the given user
+    filter: stagging                            # OPTIONAL Pass node filter to rundeck
+- project:
+    name: repos/app2
+    jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
+    ref: master
+    runOnFail: false
+- project:
+    name: repos/app3
+    jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
+- project:
+    name: repos/duplicate
+    jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
+    ref: master
+    runOnFail: false
+- project:
+    name: repos/duplicate
+    jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
+    ref: master
+    runOnFail: false
+- project:
+    name: repos/jobIdIsMissing
+    ref: master
+    runOnFail: false
