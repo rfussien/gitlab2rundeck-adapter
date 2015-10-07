@@ -38,11 +38,11 @@ class JobRunner
         ]];
 
         if ($method == 'POST') {
-            $options ['http']['header'] .= 'Content-type: application/x-www-form-urlencoded';
+            $options ['http']['header'] .= "Content-type: application/x-www-form-urlencoded\r\n";
             $options ['http']['content'] = http_build_query($parameters);
         }
 
-        $context  = stream_context_create($options);
+        $context = stream_context_create($options);
 
         return file_get_contents($this->getApiUrl($jobId), false, $context);
     }
@@ -62,7 +62,7 @@ class JobRunner
      */
     public function getApiUrl($jobId, $method = 'GET')
     {
-        $url = "http" . (($this->config['ssl']) ? 's' : ''). "://" .
+        $url = "http" . (($this->config['ssl']) ? 's' : '') . "://" .
             $this->config['host'] . ':' . $this->config['port'] . '/api/' .
             $this->config['api_version'] . '/job/' . $jobId . '/';
 
