@@ -7,6 +7,11 @@ This small package able you to run a rundeck job after a gitlab(ci) event is hoo
 - rundeck api 12 and above
 - gitlab(ci) 7 and above
 
+note: 
+    it works with the webhook of gitlab AND gitlabCI. However, when using the
+    webhook of gitlab, the build_status is considered as failed. So in that case
+    it would be useful to specify "runOnFail: true" in the project config.
+
 ## Configuration
 
 Create two configuration files. One for rundeck and another one for the gitlab's projects
