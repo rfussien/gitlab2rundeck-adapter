@@ -60,19 +60,9 @@ class Adapter
      */
     public function run()
     {
-        if (!isset($this->projectsConfig)) {
-            throw new Exception('The projects config is missing');
-        }
-
-        if (!isset($this->jobRunner)) {
-            throw new Exception('The Job runner is missing');
-        }
-
-        $hook = $this->getHook();
-
-        $project = $this->projectsConfig->getProject(
-            $hook->getProjectName(),
-            $hook->getRef()
+        $project = $this->getProjectsConfig()->getProject(
+            $this->getHook()->getProjectName(),
+            $this->getHook()->getRef()
         );
 
         // before we run the job, we want to make sure the build passed or
@@ -82,7 +72,7 @@ class Adapter
             !$project['runOnFail']
         ) {
             $this->warning(
-                "The project config for {$hook->getProjectName()} " .
+                "The project config for {$this->getHook()->getProjectName()} " .
                 "doesn't enable to run the job when the build failed"
             );
 
@@ -91,7 +81,7 @@ class Adapter
 
         $this->info("Running the job {$project['jobId']}");
 
-        return $this->jobRunner->run($project['jobId']);
+        return $this->getJobRunner()->run($project['jobId']);
     }
 
     /**
@@ -120,6 +110,24 @@ class Adapter
         );
 
         $this->projectsConfig = $projectsConfig;
+    }
+
+    private function getProjectsConfig()
+    {
+        if (!isset($this->projectsConfig)) {
+            throw new Exception('The projects config is missing');
+        }
+
+        return $this->projectsConfig;
+    }
+
+    private function getJobRunner()
+    {
+        if (!isset($this->jobRunner)) {
+            throw new Exception('The Job runner is missing');
+        }
+
+        return $this->jobRunner;
     }
 
     /**

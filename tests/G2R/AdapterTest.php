@@ -46,6 +46,17 @@ class AdapterTest extends TestCase
      */
     public function testAnExceptionIsThrownWhenNoJobRunnerIsAttached()
     {
+        $project = $this->getProjectThatDoesNotRunOnFail();
+
+        $this->stubGitlabHook
+            ->method('getBuildStatus')
+            ->willReturn('success');
+
+        $this->stubProjectsConfig
+            ->method('getProject')
+            ->willReturn($project);
+
+        $this->adapter->setHook($this->stubGitlabHook);
         $this->adapter->loadProjectsConfig($this->stubProjectsConfig);
 
         $this->adapter->run();
@@ -57,6 +68,7 @@ class AdapterTest extends TestCase
      */
     public function testAnExceptionIsThrownWhenNoProjectsConfigIsLoad()
     {
+        $this->adapter->setHook($this->stubGitlabHook);
         $this->adapter->attachJobRunner($this->stubJobRunner);
 
         $this->adapter->run();
