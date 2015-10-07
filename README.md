@@ -1,10 +1,10 @@
-# Gitlab2rundeck-Webhook-Adapter
+# gitlab2rundeck-adapter
 
 This small package able you to run a rundeck job after a gitlab(ci) event is hooked.
 
 ## Requirements:
 - works with PHP 5.4 or above
-- rundeck api 14 and above
+- rundeck api 12 and above
 - gitlab(ci) 7 and above
 
 ## Configuration
@@ -20,7 +20,7 @@ host: rundeck.local                     # REQUIRED
 token: CmBl3gDr8ua6uMXQS0pLSmGUDvHjdOl7 # REQUIRED
 port: 4440                              # OPTIONAL (Default 4440)
 ssl: true                               # OPTIONAL (Default false)
-api_version: 14                         # OPTIONAL (Default 14. Has to be >= 13)
+api_version: 13                         # OPTIONAL (Default 14. Has to be >= 13)
 log_level: DEBUG                        # OPTIONAL ('DEBUG','VERBOSE','INFO','WARN','ERROR')
 ```
 
