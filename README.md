@@ -1,12 +1,12 @@
 gitlab2rundeck-adapter
 ======================
 
+[![Latest Stable Version](https://poser.pugx.org/rfussien/gitlab2rundeck-adapter/v/stable)](https://packagist.org/packages/rfussien/gitlab2rundeck-adapter)
+[![License](https://poser.pugx.org/rfussien/gitlab2rundeck-adapter/license)](https://packagist.org/packages/rfussien/gitlab2rundeck-adapter)
 [![Build Status](https://travis-ci.org/rfussien/gitlab2rundeck-adapter.svg?branch=master)](https://travis-ci.org/rfussien/gitlab2rundeck-adapter)
+[![Code Coverage](https://scrutinizer-ci.com/g/rfussien/gitlab2rundeck-adapter/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/rfussien/gitlab2rundeck-adapter/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/rfussien/gitlab2rundeck-adapter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/rfussien/gitlab2rundeck-adapter/?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/02cd6dc2-07ad-4418-9be8-6795211ea211/mini.png)](https://insight.sensiolabs.com/projects/02cd6dc2-07ad-4418-9be8-6795211ea211)
-[![Latest Stable Version](https://poser.pugx.org/rfussien/gitlab2rundeck-adapter/v/stable)](https://packagist.org/packages/rfussien/gitlab2rundeck-adapter)
-[![Latest Unstable Version](https://poser.pugx.org/rfussien/gitlab2rundeck-adapter/v/unstable)](https://packagist.org/packages/rfussien/gitlab2rundeck-adapter)
-[![License](https://poser.pugx.org/rfussien/gitlab2rundeck-adapter/license)](https://packagist.org/packages/rfussien/gitlab2rundeck-adapter)
 
 This small package able you to run a rundeck job after a gitlab(ci) event is hooked.
 
@@ -20,11 +20,21 @@ This small package able you to run a rundeck job after a gitlab(ci) event is hoo
     webhook of gitlab, the build_status is considered as failed. So in that case
     it would be useful to specify "runOnFail: true" in the project config.
 
-## Configuration
+## Install
 
-Create two configuration files. One for rundeck and another one for the gitlab's projects
+Via Composer
 
-### Rundeck configuration
+``` bash
+$ composer require rfussien/gitlab2rundeck-adapter
+```
+
+## Usage
+
+### Configuration
+
+Create two yaml configuration files. One for rundeck and another one for the gitlab's projects
+
+#### Rundeck configuration
 
 ```yaml
 # rundeck api configuration
@@ -37,7 +47,7 @@ api_version: 13                         # OPTIONAL (Default 13. Has to be >= 12)
 log_level: DEBUG                        # OPTIONAL ('DEBUG','VERBOSE','INFO','WARN','ERROR')
 ```
 
-### Gitlab projects configuration
+#### Gitlab projects configuration
 
 ```yaml
 # gitlab(ci) configuration
@@ -59,7 +69,7 @@ projects:
 [...]
 ```
 
-## Run the adapter
+### Run the adapter
 
 ```php
 $adapter = G2R\Adapter::factory(
@@ -71,3 +81,21 @@ $adapter = G2R\Adapter::factory(
 
 $adapter->run();
 ```
+
+## Testing
+
+``` bash
+$ composer test
+```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
+
+## Security
+
+If you discover any security related issues, please email :author_email instead of using the issue tracker.
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
