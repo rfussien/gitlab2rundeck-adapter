@@ -9,14 +9,14 @@
     }
   ],
   "require": {
-    "php": ">=5.4",
     "hassankhan/config": "^0.8.2",
-    "psr/log": "~1.0"
+    "php": ">=5.4",
+    "psr/log": "~1.0",
+    "symfony/yaml": "~2"
   },
   "require-dev": {
     "monolog/monolog": "^1.17",
-    "phpunit/phpunit": "~4",
-    "symfony/yaml": "~2"
+    "phpunit/phpunit": "~4"
   },
   "autoload": {
     "psr-4": {
