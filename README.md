@@ -25,7 +25,7 @@ host: rundeck.local                     # REQUIRED
 token: CmBl3gDr8ua6uMXQS0pLSmGUDvHjdOl7 # REQUIRED
 port: 4440                              # OPTIONAL (Default 4440)
 ssl: true                               # OPTIONAL (Default false)
-api_version: 13                         # OPTIONAL (Default 14. Has to be >= 13)
+api_version: 13                         # OPTIONAL (Default 13. Has to be >= 12)
 log_level: DEBUG                        # OPTIONAL ('DEBUG','VERBOSE','INFO','WARN','ERROR')
 ```
 
@@ -36,7 +36,7 @@ log_level: DEBUG                        # OPTIONAL ('DEBUG','VERBOSE','INFO','WA
 gitlab_url: http://gitlab
 projects:
 - project:
-    url: repos/app1                             # REQUIRED project url (w/o the base_url)
+    name: repos/app1                             # REQUIRED project name (w/o the base_url)
     jobId: 558d3c76-7768-4056-a10c-0842ecae0ca9 # REQUIRED Rundeck Job UUID
     ref: master                                 # OPTIONAL default: master. Project branch
     runOnFail: true                             # OPTIONAL default: false. Run the job even if the tests failed
@@ -44,7 +44,7 @@ projects:
     jobArgs: { arg1: foo, arg2: bar }           # OPTIONAL Rundeck Job arguments
     runJobAs: foo                               # OPTIONAL Run the job as the given user
 - project:
-    url: repos/app2
+    name: repos/app2
     jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
     ref: master
     runOnFail: false
