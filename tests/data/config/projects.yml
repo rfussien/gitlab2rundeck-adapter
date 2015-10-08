@@ -1,33 +1,41 @@
-gitlab_url: http://gitlab
+gitlab_url: "http://gitlab"
 projects:
-- project:
-    name: repos/app1
-    jobId: 558d3c76-7768-4056-a10c-0842ecae0ca9
-    ref: master
-    runOnFail: true
-    runOnTagOnly: true
-    jobArgs: { arg1: foo, arg2: bar }
-    runJobAs: foo
-    filter: stagging
-- project:
-    name: repos/app2
-    jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
-    ref: master
-    runOnFail: false
-- project:
-    name: repos/app3
-    jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
-- project:
-    name: repos/duplicate
-    jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
-    ref: master
-    runOnFail: false
-- project:
-    name: repos/duplicate
-    jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
-    ref: master
-    runOnFail: false
-- project:
-    name: repos/jobIdIsMissing
-    ref: master
-    runOnFail: false
+  -
+    project:
+      filter: stagging
+      jobArgs:
+        arg1: foo
+        arg2: bar
+      jobId: 558d3c76-7768-4056-a10c-0842ecae0ca9
+      name: repos/app1
+      ref: master
+      runJobAs: foo
+      runOnFail: true
+      runOnTagOnly: true
+  -
+    project:
+      jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
+      name: repos/app2
+      ref: master
+      runOnFail: false
+  -
+    project:
+      jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
+      name: repos/app3
+  -
+    project:
+      jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
+      name: repos/duplicate
+      ref: master
+      runOnFail: false
+  -
+    project:
+      jobId: 558d3c76-7768-4056-a10c-0842ecae0ca8
+      name: repos/duplicate
+      ref: master
+      runOnFail: false
+  -
+    project:
+      name: repos/jobIdIsMissing
+      ref: master
+      runOnFail: false
