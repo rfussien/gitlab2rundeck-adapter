@@ -1,4 +1,12 @@
-# gitlab2rundeck-adapter
+gitlab2rundeck-adapter
+======================
+
+[![Build Status](https://travis-ci.org/rfussien/gitlab2rundeck-adapter.svg?branch=master)](https://travis-ci.org/rfussien/gitlab2rundeck-adapter)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/rfussien/gitlab2rundeck-adapter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/rfussien/gitlab2rundeck-adapter/?branch=master)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/02cd6dc2-07ad-4418-9be8-6795211ea211/mini.png)](https://insight.sensiolabs.com/projects/02cd6dc2-07ad-4418-9be8-6795211ea211)
+[![Latest Stable Version](https://poser.pugx.org/rfussien/gitlab2rundeck-adapter/v/stable)](https://packagist.org/packages/rfussien/gitlab2rundeck-adapter)
+[![Latest Unstable Version](https://poser.pugx.org/rfussien/gitlab2rundeck-adapter/v/unstable)](https://packagist.org/packages/rfussien/gitlab2rundeck-adapter)
+[![License](https://poser.pugx.org/rfussien/gitlab2rundeck-adapter/license)](https://packagist.org/packages/rfussien/gitlab2rundeck-adapter)
 
 This small package able you to run a rundeck job after a gitlab(ci) event is hooked.
 
@@ -7,7 +15,7 @@ This small package able you to run a rundeck job after a gitlab(ci) event is hoo
 - rundeck api 12 and above
 - gitlab(ci) 7 and above
 
-note: 
+> note:
     it works with the webhook of gitlab AND gitlabCI. However, when using the
     webhook of gitlab, the build_status is considered as failed. So in that case
     it would be useful to specify "runOnFail: true" in the project config.
