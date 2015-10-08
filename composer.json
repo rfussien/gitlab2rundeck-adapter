@@ -1,32 +1,38 @@
 {
-  "name": "rfussien/gitlab2rundeck-adapter",
-  "description": "a small gitlab to rundeck adapter",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Remi FUSSIEN",
-      "email": "remi.fussien@gmail.com"
+    "name": "rfussien/gitlab2rundeck-adapter",
+    "description": "a small gitlab to rundeck adapter",
+    "homepage": "https://github.com/rfussien/gitlab2rundeck-adapter",
+    "license": "MIT",
+    "authors": [{
+        "name": "Remi FUSSIEN",
+        "email": "remi.fussien@gmail.com"
+    }],
+    "require": {
+        "hassankhan/config": "^0.8.2",
+        "php": ">=5.4",
+        "psr/log": "~1.0",
+        "symfony/yaml": "~2"
+    },
+    "require-dev": {
+        "monolog/monolog": "^1.17",
+        "phpunit/phpunit": "~4"
+    },
+    "autoload": {
+        "psr-4": {
+            "G2R\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "G2R\\": "tests/G2R"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
     }
-  ],
-  "require": {
-    "hassankhan/config": "^0.8.2",
-    "php": ">=5.4",
-    "psr/log": "~1.0",
-    "symfony/yaml": "~2"
-  },
-  "require-dev": {
-    "monolog/monolog": "^1.17",
-    "phpunit/phpunit": "~4"
-  },
-  "autoload": {
-    "psr-4": {
-      "G2R\\": "src"
-    }
-  },
-  "autoload-dev": {
-    "classmap": [
-      "tests/"
-    ]
-  },
-  "minimum-stability": "stable"
 }
