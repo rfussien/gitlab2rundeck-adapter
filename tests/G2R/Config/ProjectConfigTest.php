@@ -28,11 +28,10 @@ class ProjectConfigTest extends TestCase
                 'ref' => 'master',
                 'runOnFail' => true,
                 'runOnTagOnly' => true,
-                'jobArgs' =>
-                    array (
-                        'arg1' => 'foo',
-                        'arg2' => 'bar',
-                    ),
+                'jobArgs' => array (
+                    'arg1' => 'foo',
+                    'arg2' => 'bar',
+                ),
                 'runJobAs' => 'foo',
                 'filter' => 'stagging',
             ],

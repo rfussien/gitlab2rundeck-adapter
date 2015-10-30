@@ -15,6 +15,7 @@
     },
     "require-dev": {
         "monolog/monolog": "^1.17",
+        "phpdocumentor/phpdocumentor": "^2.8",
         "phpunit/phpunit": "~4.8",
         "scrutinizer/ocular": "~1.1"
     },
@@ -29,7 +30,10 @@
         }
     },
     "scripts": {
-        "test": "phpunit"
+        "doc": "phpdoc",
+        "test": "phpunit",
+        "check-codestyle": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-codestyle": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
     },
     "extra": {
         "branch-alias": {

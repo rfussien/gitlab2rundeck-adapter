@@ -237,11 +237,10 @@ class AdapterTest extends TestCase
             'ref'          => 'master',
             'runOnFail'    => true,
             'runOnTagOnly' => true,
-            'jobArgs'      =>
-                array(
-                    'arg1' => 'foo',
-                    'arg2' => 'bar',
-                ),
+            'jobArgs'      => array(
+                'arg1' => 'foo',
+                'arg2' => 'bar',
+            ),
             'runJobAs'     => 'foo',
         ];
     }
@@ -254,11 +253,10 @@ class AdapterTest extends TestCase
             'ref'          => 'master',
             'runOnFail'    => false,
             'runOnTagOnly' => true,
-            'jobArgs'      =>
-                array(
-                    'arg1' => 'foo',
-                    'arg2' => 'bar',
-                ),
+            'jobArgs'      => array(
+                'arg1' => 'foo',
+                'arg2' => 'bar',
+            ),
             'runJobAs'     => 'foo',
         ];
     }
