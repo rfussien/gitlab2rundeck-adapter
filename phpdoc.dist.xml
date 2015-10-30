@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpdoc>
-    <title><![CDATA[:package_name]]></title>
+    <title><![CDATA[gitlab2rundeck-adapter]]></title>
     <parser>
         <target>docs</target>
     </parser>
