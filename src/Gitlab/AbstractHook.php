@@ -9,8 +9,10 @@ abstract class AbstractHook
     public function __construct($data)
     {
         if (gettype($data) == 'string') {
-            $this->data = json_decode($data);
+            $data = json_decode($data);
         }
+
+        $this->data = $data;
     }
 
     public function getRef()
