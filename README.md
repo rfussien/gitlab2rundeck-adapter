@@ -4,6 +4,7 @@ gitlab2rundeck-adapter
 [![Latest Stable Version](https://poser.pugx.org/rfussien/gitlab2rundeck-adapter/v/stable)](https://packagist.org/packages/rfussien/gitlab2rundeck-adapter)
 [![License](https://poser.pugx.org/rfussien/gitlab2rundeck-adapter/license)](https://packagist.org/packages/rfussien/gitlab2rundeck-adapter)
 [![Build Status](https://travis-ci.org/rfussien/gitlab2rundeck-adapter.svg?branch=master)](https://travis-ci.org/rfussien/gitlab2rundeck-adapter)
+[![Dependency Status](https://www.versioneye.com/user/projects/563779a136d0ab0016002151/badge.svg?style=flat)](https://www.versioneye.com/user/projects/563779a136d0ab0016002151)
 [![Code Coverage](https://scrutinizer-ci.com/g/rfussien/gitlab2rundeck-adapter/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/rfussien/gitlab2rundeck-adapter/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/rfussien/gitlab2rundeck-adapter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/rfussien/gitlab2rundeck-adapter/?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/02cd6dc2-07ad-4418-9be8-6795211ea211/mini.png)](https://insight.sensiolabs.com/projects/02cd6dc2-07ad-4418-9be8-6795211ea211)
