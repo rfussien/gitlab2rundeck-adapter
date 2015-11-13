@@ -139,6 +139,8 @@ class Adapter
     {
         if (!isset($this->hook)) {
             $this->hook = HookResolver::load($this->getInput());
+
+            $this->debug('Hook handler type: ' . get_class($this->hook));
         }
 
         return $this->hook;
@@ -153,7 +155,10 @@ class Adapter
     {
         if (!isset($this->input)) {
             $this->debug('no input specified. Default php://input');
+
             $this->input = file_get_contents('php://input');
+
+            $this->debug('input content: ' . $this->input);
         }
 
         return $this->input;
