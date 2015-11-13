@@ -1,14 +1,14 @@
 <?php namespace G2R\Gitlab;
 
-class GitlabCiHook extends GitlabHook
+class GitlabCiHook extends AbstractHook
 {
-    public function __construct($data)
+    public function getUrl()
     {
-        if (gettype($data) == 'string') {
-            $data = json_decode($data);
-        }
+        return $this->data->gitlab_url;
+    }
 
-        $this->pushData = $data->push_data;
-        $this->buildStatus = $data->build_status;
+    public function getBuildStatus()
+    {
+        return $this->data->build_status;
     }
 }

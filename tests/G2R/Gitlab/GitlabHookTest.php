@@ -26,6 +26,6 @@ class GitlabHookTest extends TestCase
 
     public function testGetTheBuildStatus()
     {
-        $this->assertEquals('failed', $this->push_hook->getBuildStatus());
+        $this->assertEquals('n/a', $this->push_hook->getBuildStatus());
     }
 }
