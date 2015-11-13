@@ -9,7 +9,7 @@ class HookResolverTest extends TestCase
         $json = $this->loadFile('gitlab/push_event.json');
         $hook = HookResolver::load($json);
 
-        $this->assertEquals('G2R\Gitlab\GitlabHook', get_class($hook));
+        $this->assertInstanceOf('G2R\Gitlab\GitlabHook', $hook);
     }
 
     public function testGitlabCiHookIsDetected()
@@ -17,6 +17,6 @@ class HookResolverTest extends TestCase
         $json = $this->loadFile('gitlabci/push_build_success.json');
         $hook = HookResolver::load($json);
 
-        $this->assertEquals('G2R\Gitlab\GitlabCiHook', get_class($hook));
+        $this->assertInstanceOf('G2R\Gitlab\GitlabCiHook', $hook);
     }
 }
