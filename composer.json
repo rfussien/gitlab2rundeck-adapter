@@ -11,12 +11,12 @@
         "hassankhan/config": "^0.8.2",
         "php": ">=5.4",
         "psr/log": "~1.0",
-        "symfony/yaml": "~2.5"
+        "symfony/yaml": "~2.8"
     },
     "require-dev": {
         "monolog/monolog": "^1.17",
         "phpdocumentor/phpdocumentor": "^2.8",
-        "phpunit/phpunit": "~4.8",
+        "phpunit/phpunit": "~5.1",
         "scrutinizer/ocular": "~1.1"
     },
     "autoload": {
