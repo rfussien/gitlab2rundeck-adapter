@@ -10,7 +10,7 @@ class HookResolver
     /**
      * Load a gitlab or gitlab CI webhook handler
      *
-     * @param $data
+     * @param string $data
      *
      * @return GitlabCiHook|GitlabHook
      */
