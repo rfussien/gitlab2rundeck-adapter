@@ -4,19 +4,27 @@ use G2R\TestCase;
 
 class HookResolverTest extends TestCase
 {
-    public function testGitlabHookIsDetected()
+    public function testHookPushIsResolved()
     {
         $json = $this->loadFile('gitlab/push_event.json');
         $hook = HookResolver::load($json);
 
-        $this->assertInstanceOf('G2R\Gitlab\GitlabHook', $hook);
+        $this->assertInstanceOf('G2R\Gitlab\Hook\Push', $hook);
     }
 
-    public function testGitlabCiHookIsDetected()
+    public function testHookTagIsResolved()
     {
-        $json = $this->loadFile('gitlabci/push_build_success.json');
+        $json = $this->loadFile('gitlab/tag_event.json');
         $hook = HookResolver::load($json);
 
-        $this->assertInstanceOf('G2R\Gitlab\GitlabCiHook', $hook);
+        $this->assertInstanceOf('G2R\Gitlab\Hook\Tag', $hook);
+    }
+
+    public function testHookBuildIsResolved()
+    {
+        $json = $this->loadFile('gitlab/build_event.json');
+        $hook = HookResolver::load($json);
+
+        $this->assertInstanceOf('G2R\Gitlab\Hook\Build', $hook);
     }
 }

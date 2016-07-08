@@ -1,10 +1,10 @@
-<?php namespace G2R\Gitlab;
+<?php namespace G2R\Gitlab\Hook;
 
-class GitlabCiHook extends AbstractHook
+class Tag extends AbstractHook
 {
     public function getUrl()
     {
-        return $this->data->gitlab_url;
+        return $this->data->repository->git_http_url;
     }
 
     public function getBuildStatus()

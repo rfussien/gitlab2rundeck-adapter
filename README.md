@@ -14,7 +14,7 @@ This small package able you to run a rundeck job after a gitlab(ci) event is hoo
 ## Requirements:
 - works with PHP 5.4 or above
 - rundeck api 12 and above
-- gitlab(ci) 7 and above
+- gitlab(ci) 8.5 and above
 
 > note:
     it works with the webhook of gitlab AND gitlabCI. However, when using the

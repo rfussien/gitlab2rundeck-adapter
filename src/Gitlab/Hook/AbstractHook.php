@@ -1,4 +1,4 @@
-<?php namespace G2R\Gitlab;
+<?php namespace G2R\Gitlab\Hook;
 
 abstract class AbstractHook
 {

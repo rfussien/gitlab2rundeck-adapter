@@ -1,6 +1,6 @@
-<?php namespace G2R\Gitlab;
+<?php namespace G2R\Gitlab\Hook;
 
-class GitlabHook extends AbstractHook
+class Push extends AbstractHook
 {
     public function getUrl()
     {
