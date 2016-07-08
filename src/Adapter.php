@@ -147,7 +147,7 @@ class Adapter
     }
 
     /**
-     * Get the input (php://input bu default)
+     * Get the input (php://input by default)
      *
      * @return string
      */
