@@ -27,4 +27,22 @@ class HookResolverTest extends TestCase
 
         $this->assertInstanceOf('G2R\Gitlab\Hook\Build', $hook);
     }
+
+    /**
+     * @expectedException G2R\Exception\Exception
+     * @expectedExceptionMessage Object kind not found in the hook data
+     */
+    public function testAnExceptionIsThrownWhenNoObjectKindIsFound()
+    {
+        $hook = HookResolver::load('{}');
+    }
+
+    /**
+     * @expectedException G2R\Exception\Exception
+     * @expectedExceptionMessage Unknown Object kind from the hook
+     */
+    public function testAnExceptionIsThrownWhenTheObjectKindIsUnknown()
+    {
+        $hook = HookResolver::load('{"object_kind": "WhatTheHeckIsThat?"}');
+    }
 }

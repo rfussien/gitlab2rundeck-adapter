@@ -16,15 +16,7 @@ class HookResolver
      */
     public static function load($data)
     {
-        $data = json_decode($data);
-
-        if (!isset($data->object_kind)) {
-            throw new Exception('Object kind not found in the hook data');
-        }
-
-        if (!in_array($data->object_kind, ['push', 'build'])) {
-            throw new Exception('Unknown Object kind from the hook');
-        }
+        $data = static::objectValidation($data);
 
         if ($data->object_kind === 'push') {
             return new Push($data);
@@ -35,5 +27,23 @@ class HookResolver
         }
 
         return new Build($data);
+    }
+
+    /**
+     * Check if the hook content has a valid object kind
+     */
+    private static function objectValidation($data)
+    {
+        $data = json_decode($data);
+
+        if (!isset($data->object_kind)) {
+            throw new Exception('Object kind not found in the hook data');
+        }
+
+        if (!in_array($data->object_kind, ['push', 'build'])) {
+            throw new Exception('Unknown Object kind from the hook');
+        }
+
+        return $data;
     }
 }
