@@ -16,7 +16,7 @@ class HookResolver
      */
     public static function load($data)
     {
-        $data = static::objectValidation($data);
+        $data = self::objectValidation($data);
 
         if ($data->object_kind === 'push') {
             return new Push($data);
