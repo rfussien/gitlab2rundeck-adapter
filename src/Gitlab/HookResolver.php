@@ -32,6 +32,7 @@ class HookResolver
     /**
      * Check if the hook content has a valid object kind
      *
+     * @param string $hookContent
      * @return string $hookContent
      */
     private static function objectValidation($hookContent)
