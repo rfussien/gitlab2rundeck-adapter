@@ -2,22 +2,22 @@
 
 abstract class AbstractHook
 {
-    protected $data;
+    protected $hook;
 
     protected $buildStatus;
 
-    public function __construct($data)
+    public function __construct($hook)
     {
-        if (gettype($data) == 'string') {
-            $data = json_decode($data);
+        if (gettype($hook) == 'string') {
+            $hook = json_decode($hook);
         }
 
-        $this->data = $data;
+        $this->hook = $hook;
     }
 
     public function getRef()
     {
-        $ref = explode('/', $this->data->ref);
+        $ref = explode('/', $this->hook->ref);
 
         return array_pop($ref);
     }
@@ -33,6 +33,14 @@ abstract class AbstractHook
         return preg_replace('/\.git$/', '', array_pop($matches));
     }
 
+    /**
+     * Return the project url
+     * @return string
+     */
     abstract public function getUrl();
+
+    /**
+     * Return the Build status (success, failed, running)
+     */
     abstract public function getBuildStatus();
 }

@@ -14,36 +14,38 @@ class HookResolver
      *
      * @return GitlabCiHook|GitlabHook
      */
-    public static function load($data)
+    public static function load($hook)
     {
-        $data = self::objectValidation($data);
+        $hook = self::objectValidation($hook);
 
-        if ($data->object_kind === 'push') {
-            return new Push($data);
+        if ($hook->object_kind === 'push') {
+            return new Push($hook);
         }
 
-        if ($data->tag) {
-            return new Tag($data);
+        if ($hook->tag) {
+            return new Tag($hook);
         }
 
-        return new Build($data);
+        return new Build($hook);
     }
 
     /**
      * Check if the hook content has a valid object kind
+     *
+     * @return string $hook
      */
-    private static function objectValidation($data)
+    private static function objectValidation($hook)
     {
-        $data = json_decode($data);
+        $hook = json_decode($hook);
 
-        if (!isset($data->object_kind)) {
+        if (!isset($hook->object_kind)) {
             throw new Exception('Object kind not found in the hook data');
         }
 
-        if (!in_array($data->object_kind, ['push', 'build'])) {
+        if (!in_array($hook->object_kind, ['push', 'build'])) {
             throw new Exception('Unknown Object kind from the hook');
         }
 
-        return $data;
+        return $hook;
     }
 }

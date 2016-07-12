@@ -4,7 +4,7 @@ class Push extends AbstractHook
 {
     public function getUrl()
     {
-        return $this->data->repository->git_http_url;
+        return $this->hook->repository->git_http_url;
     }
 
     public function getBuildStatus()
