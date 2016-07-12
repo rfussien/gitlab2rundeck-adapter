@@ -2,22 +2,27 @@
 
 abstract class AbstractHook
 {
-    protected $hook;
+    protected $hookContent;
 
     protected $buildStatus;
 
-    public function __construct($hook)
+    public function __construct($hookContent)
     {
-        if (gettype($hook) == 'string') {
-            $hook = json_decode($hook);
+        $this->hookContent = $hookContent;
+    }
+
+    public function getContent()
+    {
+        if (gettype($this->hookContent) == 'string') {
+            $this->hookContent = json_decode($this->hookContent);
         }
 
-        $this->hook = $hook;
+        return $this->hookContent;
     }
 
     public function getRef()
     {
-        $ref = explode('/', $this->hook->ref);
+        $ref = explode('/', $this->getContent()->ref);
 
         return array_pop($ref);
     }

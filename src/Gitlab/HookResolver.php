@@ -10,42 +10,42 @@ class HookResolver
     /**
      * Load a gitlab or gitlab CI webhook handler
      *
-     * @param string $data
+     * @param string $hookContent
      *
      * @return GitlabCiHook|GitlabHook
      */
-    public static function load($hook)
+    public static function load($hookContent)
     {
-        $hook = self::objectValidation($hook);
+        $hookContent = self::objectValidation($hookContent);
 
-        if ($hook->object_kind === 'push') {
-            return new Push($hook);
+        if ($hookContent->object_kind === 'push') {
+            return new Push($hookContent);
         }
 
-        if ($hook->tag) {
-            return new Tag($hook);
+        if ($hookContent->tag) {
+            return new Tag($hookContent);
         }
 
-        return new Build($hook);
+        return new Build($hookContent);
     }
 
     /**
      * Check if the hook content has a valid object kind
      *
-     * @return string $hook
+     * @return string $hookContent
      */
-    private static function objectValidation($hook)
+    private static function objectValidation($hookContent)
     {
-        $hook = json_decode($hook);
+        $hookContent = json_decode($hookContent);
 
-        if (!isset($hook->object_kind)) {
+        if (!isset($hookContent->object_kind)) {
             throw new Exception('Object kind not found in the hook data');
         }
 
-        if (!in_array($hook->object_kind, ['push', 'build'])) {
+        if (!in_array($hookContent->object_kind, ['push', 'build'])) {
             throw new Exception('Unknown Object kind from the hook');
         }
 
-        return $hook;
+        return $hookContent;
     }
 }

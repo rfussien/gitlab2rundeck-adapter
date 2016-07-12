@@ -4,11 +4,11 @@ class Tag extends AbstractHook
 {
     public function getUrl()
     {
-        return $this->hook->repository->git_http_url;
+        return $this->getContent()->repository->git_http_url;
     }
 
     public function getBuildStatus()
     {
-        return $this->hook->build_status;
+        return $this->getContent()->build_status;
     }
 }
