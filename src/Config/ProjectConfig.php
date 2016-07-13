@@ -49,6 +49,33 @@ class ProjectConfig extends AbstractConfig
     }
 
     /**
+     * Try to find a project and return it
+     *
+     * @return array $project
+     */
+    protected function findProject($name, $ref)
+    {
+        $projects = array_filter(
+            $this->get('projects'),
+            function ($config) use ($name, $ref) {
+                return
+                    $config['project']['name'] == $name &&
+                    $config['project']['ref'] == $ref;
+            }
+        );
+
+        if (count($projects) > 1) {
+            throw new Exception("Duplicate project {$name}[{$ref}]");
+        }
+
+        if (count($projects) === 0) {
+            throw new Exception("Project {$name}[{$ref}] not found");
+        }
+
+        return array_shift($projects)['project'];
+    }
+
+    /**
      * Return a project identified by its short url
      *
      * @param        $name
@@ -59,30 +86,14 @@ class ProjectConfig extends AbstractConfig
      */
     public function getProject($name, $ref = 'master')
     {
-        $project = array_filter(
-            $this->get('projects'),
-            function ($config) use ($name, $ref) {
-                return
-                    $config['project']['name'] == $name &&
-                    $config['project']['ref'] == $ref;
-            }
-        );
+        $project = $this->findProject($name, $ref);
 
-        switch (count($project)) {
-            case 1:
-                $project = array_shift($project)['project'];
-
-                if (!isset($project['jobId'])) {
-                    throw new Exception(
-                        "The jobId is missing for the {$name}[{$ref}] project"
-                    );
-                }
-
-                return $project;
-            case 0:
-                throw new Exception("Project {$name}[{$ref}] not found");
-            default:
-                throw new Exception("Duplicate project {$name}[{$ref}]");
+        if (!isset($project['jobId'])) {
+            throw new Exception(
+                "The jobId is missing for the {$name}[{$ref}] project"
+            );
         }
+
+        return $project;
     }
 }
