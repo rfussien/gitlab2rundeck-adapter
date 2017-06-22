@@ -1,4 +1,6 @@
-<?php namespace G2R\Gitlab;
+<?php
+
+namespace G2R\Gitlab;
 
 use G2R\Exception\Exception;
 use G2R\Gitlab\Hook\Build;
@@ -8,7 +10,7 @@ use G2R\Gitlab\Hook\Tag;
 class HookResolver
 {
     /**
-     * Load a gitlab or gitlab CI webhook handler
+     * Load a gitlab or gitlab CI webhook handler.
      *
      * @param string $hookContent
      *
@@ -30,9 +32,10 @@ class HookResolver
     }
 
     /**
-     * Check if the hook content has a valid object kind
+     * Check if the hook content has a valid object kind.
      *
      * @param string $hookContent
+     *
      * @return string $hookContent
      */
     private static function objectValidation($hookContent)

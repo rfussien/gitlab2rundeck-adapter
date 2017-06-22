@@ -9,7 +9,7 @@ gitlab2rundeck-adapter
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/rfussien/gitlab2rundeck-adapter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/rfussien/gitlab2rundeck-adapter/?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/02cd6dc2-07ad-4418-9be8-6795211ea211/mini.png)](https://insight.sensiolabs.com/projects/02cd6dc2-07ad-4418-9be8-6795211ea211)
 
-This small package able you to run a rundeck job after a gitlab(ci) event is hooked.
+This package allows to run a rundeck job after a gitlab(ci) event is hooked.
 
 ## Requirements:
 - works with PHP 5.6 or above

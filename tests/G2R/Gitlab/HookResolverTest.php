@@ -1,4 +1,6 @@
-<?php namespace G2R\Gitlab;
+<?php
+
+namespace G2R\Gitlab;
 
 use G2R\TestCase;
 

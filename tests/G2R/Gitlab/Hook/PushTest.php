@@ -1,8 +1,10 @@
-<?php namespace G2R\Gitlab\Hook;
+<?php
+
+namespace G2R\Gitlab\Hook;
 
 use G2R\TestCase;
 
-class PushHookTest extends TestCase
+class PushTest extends TestCase
 {
     protected $hook;
 

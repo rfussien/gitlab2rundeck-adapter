@@ -1,4 +1,6 @@
-<?php namespace G2R\Gitlab\Hook;
+<?php
+
+namespace G2R\Gitlab\Hook;
 
 class Build extends AbstractHook
 {

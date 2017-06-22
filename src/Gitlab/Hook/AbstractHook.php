@@ -1,4 +1,6 @@
-<?php namespace G2R\Gitlab\Hook;
+<?php
+
+namespace G2R\Gitlab\Hook;
 
 abstract class AbstractHook
 {
@@ -39,13 +41,14 @@ abstract class AbstractHook
     }
 
     /**
-     * Return the project url
+     * Return the project url.
+     *
      * @return string
      */
     abstract public function getUrl();
 
     /**
-     * Return the Build status (success, failed, running)
+     * Return the Build status (success, failed, running).
      */
     abstract public function getBuildStatus();
 }
