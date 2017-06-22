@@ -1,4 +1,6 @@
-<?php namespace G2R\Gitlab\Hook;
+<?php
+
+namespace G2R\Gitlab\Hook;
 
 use G2R\TestCase;
 

@@ -1,4 +1,6 @@
-<?php namespace G2R;
+<?php
+
+namespace G2R;
 
 use G2R\Config\ProjectConfig;
 use G2R\Config\RundeckConfig;
@@ -44,7 +46,7 @@ class Adapter
     }
 
     /**
-     * Eventually attach a Logger
+     * Eventually attach a Logger.
      *
      * @param LoggerInterface|null $logger
      */
@@ -54,7 +56,7 @@ class Adapter
     }
 
     /**
-     * Run the adapter
+     * Run the adapter.
      *
      * @throws Exception
      */
@@ -72,7 +74,7 @@ class Adapter
             !$project['runOnFail']
         ) {
             $this->warning(
-                "The project config for {$this->getHook()->getProjectName()} " .
+                "The project config for {$this->getHook()->getProjectName()} ".
                 "doesn't enable to run the job when the build failed"
             );
 
@@ -85,7 +87,7 @@ class Adapter
     }
 
     /**
-     * Load the rundeck job runner
+     * Load the rundeck job runner.
      *
      * @param JobRunner $jobRunner
      */
@@ -99,7 +101,7 @@ class Adapter
     }
 
     /**
-     * Load the projects config
+     * Load the projects config.
      *
      * @param ProjectConfig $projectsConfig
      */
@@ -131,7 +133,7 @@ class Adapter
     }
 
     /**
-     * Get the hook
+     * Get the hook.
      *
      * @return HookResolver
      */
@@ -140,14 +142,14 @@ class Adapter
         if (!isset($this->hook)) {
             $this->hook = HookResolver::load($this->getInput());
 
-            $this->debug('Hook handler type: ' . get_class($this->hook));
+            $this->debug('Hook handler type: '.get_class($this->hook));
         }
 
         return $this->hook;
     }
 
     /**
-     * Get the input (php://input by default)
+     * Get the input (php://input by default).
      *
      * @return string
      */
@@ -158,7 +160,7 @@ class Adapter
 
             $this->input = file_get_contents('php://input');
 
-            $this->debug('input content: ' . $this->input);
+            $this->debug('input content: '.$this->input);
         }
 
         return $this->input;
@@ -175,13 +177,13 @@ class Adapter
     }
 
     /**
-     * Call the logger
+     * Call the logger.
      *
      * @param       $level
      * @param       $message
      * @param array $context
      */
-    public function log($level, $message, array $context = array())
+    public function log($level, $message, array $context = [])
     {
         if ($this->logger) {
             $this->logger->log($level, $message, $context);

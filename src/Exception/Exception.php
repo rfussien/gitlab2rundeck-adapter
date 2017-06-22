@@ -1,4 +1,6 @@
-<?php namespace G2R\Exception;
+<?php
+
+namespace G2R\Exception;
 
 class Exception extends \Exception
 {

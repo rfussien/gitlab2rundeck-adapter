@@ -1,6 +1,6 @@
-<?php namespace G2R;
+<?php
 
-use G2R\Rundeck\JobRunner;
+namespace G2R;
 
 class AdapterTest extends TestCase
 {
@@ -190,7 +190,7 @@ class AdapterTest extends TestCase
             ->disableOriginalConstructor()
             ->setMethods([
                 'getApiUrl',
-                'getFilename'
+                'getFilename',
             ])
             ->getMock();
 
@@ -206,7 +206,7 @@ class AdapterTest extends TestCase
             ->disableOriginalConstructor()
             ->setMethods([
                 'getConfig',
-                'run'
+                'run',
             ])
             ->getMock();
 
@@ -222,7 +222,7 @@ class AdapterTest extends TestCase
             ->disableOriginalConstructor()
             ->setMethods([
                 'getProject',
-                'getFilename'
+                'getFilename',
             ])
             ->getMock();
 
@@ -237,10 +237,10 @@ class AdapterTest extends TestCase
             'ref'          => 'master',
             'runOnFail'    => true,
             'runOnTagOnly' => true,
-            'jobArgs'      => array(
+            'jobArgs'      => [
                 'arg1' => 'foo',
                 'arg2' => 'bar',
-            ),
+            ],
             'runJobAs'     => 'foo',
         ];
     }
@@ -253,10 +253,10 @@ class AdapterTest extends TestCase
             'ref'          => 'master',
             'runOnFail'    => false,
             'runOnTagOnly' => true,
-            'jobArgs'      => array(
+            'jobArgs'      => [
                 'arg1' => 'foo',
                 'arg2' => 'bar',
-            ),
+            ],
             'runJobAs'     => 'foo',
         ];
     }
