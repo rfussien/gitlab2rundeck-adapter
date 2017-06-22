@@ -1,4 +1,6 @@
-<?php namespace G2R\Config;
+<?php
+
+namespace G2R\Config;
 
 use G2R\TestCase;
 
@@ -23,17 +25,17 @@ class ProjectConfigTest extends TestCase
     {
         $this->assertEquals(
             [
-                'name' => 'repos/app1',
-                'jobId' => '558d3c76-7768-4056-a10c-0842ecae0ca9',
-                'ref' => 'master',
-                'runOnFail' => true,
+                'name'         => 'repos/app1',
+                'jobId'        => '558d3c76-7768-4056-a10c-0842ecae0ca9',
+                'ref'          => 'master',
+                'runOnFail'    => true,
                 'runOnTagOnly' => true,
-                'jobArgs' => array (
+                'jobArgs'      => [
                     'arg1' => 'foo',
                     'arg2' => 'bar',
-                ),
+                ],
                 'runJobAs' => 'foo',
-                'filter' => 'stagging',
+                'filter'   => 'stagging',
             ],
             $this->config->getProject('repos/app1')
         );

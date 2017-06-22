@@ -1,4 +1,6 @@
-<?php namespace G2R\Rundeck;
+<?php
+
+namespace G2R\Rundeck;
 
 use G2R\Config\RundeckConfig;
 use G2R\TestCase;
@@ -33,13 +35,13 @@ class JobRunnerTest extends TestCase
 
         $this->assertEquals(
             $RunningJobApiPost,
-            $jobRunner->getApiUrl($jobId, "POST")
+            $jobRunner->getApiUrl($jobId, 'POST')
         );
 
         // check the method isn't case sensitive
         $this->assertEquals(
             $RunningJobApiPost,
-            $jobRunner->getApiUrl($jobId, "pOsT")
+            $jobRunner->getApiUrl($jobId, 'pOsT')
         );
     }
 }

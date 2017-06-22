@@ -1,4 +1,6 @@
-<?php namespace G2R;
+<?php
+
+namespace G2R;
 
 use PHPUnit_Framework_TestCase;
 
@@ -8,7 +10,7 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
 
     public function setup()
     {
-        $this->dataFolder = dirname(__DIR__) . "/data";
+        $this->dataFolder = dirname(__DIR__).'/data';
     }
 
     protected function loadFile($file)
@@ -18,6 +20,6 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
 
     protected function locate($file)
     {
-        return dirname(__DIR__) . "/data/{$file}";
+        return dirname(__DIR__)."/data/{$file}";
     }
 }

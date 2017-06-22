@@ -1,4 +1,6 @@
-<?php namespace G2R\Config;
+<?php
+
+namespace G2R\Config;
 
 use G2R\Exception\Exception;
 
@@ -49,7 +51,7 @@ class ProjectConfig extends AbstractConfig
     }
 
     /**
-     * Try to find a project and return it
+     * Try to find a project and return it.
      *
      * @return array $project
      */
@@ -76,13 +78,14 @@ class ProjectConfig extends AbstractConfig
     }
 
     /**
-     * Return a project identified by its short url
+     * Return a project identified by its short url.
      *
      * @param        $name
      * @param string $ref
      *
-     * @return array $project
      * @throws Exception
+     *
+     * @return array $project
      */
     public function getProject($name, $ref = 'master')
     {

@@ -1,9 +1,11 @@
-<?php namespace G2R\Config;
+<?php
+
+namespace G2R\Config;
 
 class RundeckConfig extends AbstractConfig
 {
     /**
-     * The default config values
+     * The default config values.
      *
      * @return array
      */
@@ -18,7 +20,7 @@ class RundeckConfig extends AbstractConfig
     }
 
     /**
-     * Set the required fields
+     * Set the required fields.
      *
      * @return array
      */

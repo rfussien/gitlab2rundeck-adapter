@@ -1,4 +1,6 @@
-<?php namespace G2R\Config;
+<?php
+
+namespace G2R\Config;
 
 use G2R\TestCase;
 
