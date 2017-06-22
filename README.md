@@ -12,7 +12,7 @@ gitlab2rundeck-adapter
 This small package able you to run a rundeck job after a gitlab(ci) event is hooked.
 
 ## Requirements:
-- works with PHP 5.4 or above
+- works with PHP 5.6 or above
 - rundeck api 12 and above
 - gitlab(ci) 8.5 and above
 
